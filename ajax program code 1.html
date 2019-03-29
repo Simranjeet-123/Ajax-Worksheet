@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>
+            Sending a request to server and get response
+        </title>
+        <script language="javascript">
+             var XHobj=false;
+             if(window.XMLhttpRequest)
+             {
+               //Code or IE6,IE5,Google Chrome ,Firefox web browser
+               XHobj=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+             else if(window.ActiveXObject)
+            {
+              //code for IE6,IE5
+              XHobj=new ActiveXObject("Microsoft.XMLHTTP");
+              function fetchData(datasource,divId)
+               {
+                  if(XHobj)
+                   {
+                      XHobj.open("GET",datasource)
+                      XHobj.onreadystatechange=function()
+                       {
+                          if(XHobj.readyState==4 && XHobj.status==200)
+                              document.getElementById(divId).innerHTML=XHobj.responseText;
+                        }
+                    }
+                }
+                 XHobj.send(null);
+            }
+        </script>
+    </head>
+    <body>
+        <h2>WELCOME TO AJAX</h2>
+        <form>
+            <input type="button" value="Fetch Message" onclick="fetchData('info.txt','myDiv')">
+            <div id="myDiv"><b>AJAX applications are browser and plateform independent:</b></div>
+        </form>
+    </body>
+</html>
