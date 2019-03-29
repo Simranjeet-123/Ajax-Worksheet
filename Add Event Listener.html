@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Add an event listner method</title>
+    </head>
+    <body>
+        <p>MCA Exam</p>
+        <p id="block2"> RESULT</p>
+        <button id="pressme">Press me</button>
+        <script type="text/javascript">
+           var pElems=document.getElementsByTagName("p");
+           for(var i=0;i<pElems.length;i++)
+           {
+                pElems[i].addEventListener("mouseover",handleMouseOver);
+                pElems[i].addEventListener("mouseout",handleMouseOut);
+
+           }
+           document.getElementById("presme").onclick=function()
+           {
+               document.getElementById("block2").removeEventListener("mouseout",handleMouseOut);
+
+           }
+           function handleMouseOver(e)
+           {
+               e.target.innerHTML+="2016";
+               E.target.style.background="olive";
+               e.target.style.color="red";
+           }
+           function handleMouseOut(e)
+           {
+               e.target.innerjQuery +="result";
+               e.target.style.removeProperty("color");
+               e.target.style.removeProperty("background");
+           }
+           </script>
+    </body>
+</html>
